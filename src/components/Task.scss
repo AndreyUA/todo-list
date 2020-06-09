@@ -1,0 +1,22 @@
+.task {
+  font-size: 30px;
+  border: 2px solid green;
+  margin: 5px 0;
+  padding: 15px;
+
+  .task-number {
+    font-style: italic;
+  }
+
+  .task-control {
+    float: right;
+  }
+
+  .task-topic {
+    text-decoration: none;
+  }
+
+  .task-topic-chosen {
+    text-decoration: line-through;
+  }
+}

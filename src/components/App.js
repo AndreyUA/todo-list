@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import "./App.scss";
 import TaskBar from "./TaskBar";
@@ -37,18 +37,14 @@ const App = () => {
   const handleTaskDelete = (e) => {
     e.preventDefault();
 
-    console.log(e.target);
-    console.log(tasks);
-    console.log(tasks.filter((task) => task.id !== e.target.value));
-
     //добавить отложенный старт
-    setTasks(tasks.filter((task) => task.id !== e.target.value));
+    setTasks(
+      tasks.filter((task) => {
+        return task.id !== e.target.value;
+      })
+    );
 
     setCount(tasks.length - 1);
-  };
-
-  const handleTaskDone = (e) => {
-    e.preventDefault();
   };
 
   return (
