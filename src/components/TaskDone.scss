@@ -1,23 +1,27 @@
-.task {
+.task-done {
   font-size: 30px;
   border: 2px solid green;
   margin: 5px 0;
   padding: 5px;
   transition: opacity 0.6s linear;
 
-  .task-number {
+  .task-done-number {
     font-style: italic;
   }
 
-  .task-control {
+  .task-done-control {
     float: right;
   }
 
-  .task-topic {
+  .task-done-topic {
     text-decoration: none;
   }
 
-  .task-topic-chosen {
+  .task-done-topic-chosen {
     text-decoration: line-through;
   }
+}
+
+.invisible {
+  opacity: 0;
 }
