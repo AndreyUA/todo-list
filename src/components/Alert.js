@@ -10,6 +10,10 @@ const Alert = (props) => {
           ? "Task created!"
           : props.message === "done"
           ? "Task done!"
+          : props.message === "del"
+          ? "Task deleted!"
+          : props.message === "ret"
+          ? "Task returned!"
           : null}
       </p>
     </div>

@@ -2,8 +2,9 @@
   font-size: 30px;
   border: 2px solid green;
   margin: 5px 0;
-  padding: 5px;
-  transition: opacity 0.6s linear;
+  padding: 15px;
+  transform: translate(0,0);
+  transition: opacity 1.2s ease-out, transform 0.6s ease-out;
 
   .task-done-number {
     font-style: italic;
@@ -20,8 +21,13 @@
   .task-done-topic-chosen {
     text-decoration: line-through;
   }
+
+  .task-control {
+    float: right;
+  }
 }
 
 .invisible {
   opacity: 0;
+  transform: translate(-150px,10px);
 }

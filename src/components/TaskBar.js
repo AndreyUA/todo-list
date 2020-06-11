@@ -11,7 +11,8 @@ const TaskBar = (props) => {
         <Task
           key={i}
           task={task}
-          delete={props.delete}
+          doneAction={props.doneAction}
+          delAction={props.delAction}
           alert={props.alert}
           setAlert={props.setAlert}
           number={i + 1}
@@ -25,7 +26,8 @@ const TaskBar = (props) => {
         <TaskDone
           key={i}
           task={task}
-          delete={props.delete}
+          delAction={props.delAction}
+          retAction={props.retAction}
           alert={props.alert}
           setAlert={props.setAlert}
           number={i + 1}

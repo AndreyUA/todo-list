@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import "./App.scss";
 import TaskBar from "./TaskBar";
@@ -37,7 +37,7 @@ const App = () => {
     //const input = document.querySelector('.input').blur();
   };
 
-  const handleTaskDelete = (e) => {
+  const handleTaskDone = (e) => {
     e.preventDefault();
 
     //добавить отложенный старт
@@ -56,8 +56,42 @@ const App = () => {
     );
     setCount(tasks.length - 1);
 
-    const delMessage = () => {
+    const doneMessage = () => {
       setMessage("done");
+      setAlert(true);
+      let alertWindow = setTimeout(() => setAlert(false), 1000);
+
+      return () => {
+        clearInterval(alertWindow);
+      };
+    };
+
+    doneMessage();
+  };
+
+  const handleTaskDel = (e) => {
+    e.preventDefault();
+
+    setTasks(
+      tasks.filter((task) => {
+        return task.id !== e.target.value;
+      })
+    );
+
+    setDone(
+      done.filter((task) => {
+        return task.id !== e.target.value;
+      })
+    );
+
+    tasks.forEach((task) => {
+      if (task.id === e.target.value) {
+        setCount(tasks.length - 1);
+      }
+    });
+
+    const delMessage = () => {
+      setMessage("del");
       setAlert(true);
       let alertWindow = setTimeout(() => setAlert(false), 1000);
 
@@ -68,6 +102,45 @@ const App = () => {
 
     delMessage();
   };
+
+  const handleTaskReturn = (e) => {
+    e.preventDefault();
+
+    setDone(
+      done.filter((task) => {
+        return task.id !== e.target.value;
+      })
+    );
+
+    setTasks(
+      tasks.concat(
+        done.filter((task) => {
+          return task.id === e.target.value;
+        })
+      )
+    );
+    setCount(tasks.length + 1);
+
+    const retMessage = () => {
+      setMessage("ret");
+      setAlert(true);
+      let alertWindow = setTimeout(() => setAlert(false), 1000);
+
+      return () => {
+        clearInterval(alertWindow);
+      };
+    };
+
+    retMessage();
+  };
+
+  useEffect(() => {
+    const delBut = document.querySelectorAll(".delete");
+
+    delBut.forEach((item) =>
+      item.addEventListener("click", () => console.log("deleted!"))
+    );
+  });
 
   return (
     <div className="wrapper">
@@ -80,7 +153,9 @@ const App = () => {
 
       <TaskBar
         tasks={tasks}
-        delete={handleTaskDelete}
+        doneAction={handleTaskDone}
+        delAction={handleTaskDel}
+        retAction={handleTaskReturn}
         alert={alert}
         setAlert={setAlert}
         done={done}

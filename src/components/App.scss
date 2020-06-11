@@ -23,3 +23,69 @@
     font-size: 40px;
   }
 }
+
+.delete {
+  margin-left: 5px;
+  font-size: 30px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+
+  appearance: none;
+  border: 0;
+  border-radius: 20%;
+  background: rgba(255, 0, 0, 0.6);
+  color: rgb(0, 0, 0);
+}
+
+.delete:hover {
+  background: rgb(255, 3, 3);
+}
+
+.delete:focus {
+  outline: none;
+}
+
+.return {
+  margin-left: 5px;
+  font-size: 30px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+
+  appearance: none;
+  border: 0;
+  border-radius: 20%;
+  background: rgba(255, 238, 0, 0.6);
+  color: rgb(0, 0, 0);
+}
+
+.return:hover {
+  background: rgb(255, 238, 0);
+}
+
+.return:focus {
+  outline: none;
+}
+
+.done {
+  margin-left: 5px;
+  font-size: 30px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+
+  appearance: none;
+  border: 0;
+  border-radius: 20%;
+  background: rgba(0, 255, 0, 0.6);
+  color: rgb(0, 0, 0);
+}
+
+.done:hover {
+  background: rgb(0, 255, 0);
+}
+
+.done:focus {
+  outline: none;
+}
