@@ -5,6 +5,12 @@
   height: 80%;
   overflow-y: scroll;
   overflow-x: hidden;
+  background-color: rgb(58, 57, 57);
+
+  .done-txt {
+    font-weight: bold;
+    font-size: 33px;
+  }
 }
 
 .tasks::-webkit-scrollbar {

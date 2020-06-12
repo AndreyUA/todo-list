@@ -19,7 +19,9 @@ const TaskBar = (props) => {
         />
       ))}
       {props.done.length > 0 ? (
-        <p style={{ textAlign: "center" }}>Done:</p>
+        <p className="done-txt" style={{ textAlign: "center" }}>
+          Done:
+        </p>
       ) : null}
 
       {props.done.map((task, i) => (

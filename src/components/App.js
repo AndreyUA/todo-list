@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import "./App.scss";
 import TaskBar from "./TaskBar";
 import Alert from "./Alert";
+import TodoFrom from "./TodoForm";
 
 const App = () => {
   const [count, setCount] = useState(0);
@@ -16,13 +17,36 @@ const App = () => {
     setText(e.target.value);
   };
 
+  const messageAction = (mes) => {
+    setMessage(mes);
+    setAlert(true);
+
+    const alertWindow = setTimeout(() => setAlert(false), 1000);
+
+    return () => {
+      clearInterval(alertWindow);
+    };
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    setCount(tasks.length + 1);
 
-    if (text.length === 0) {
+    const input = document.querySelector(".form-input");
+
+    if (text.trim().length === 0) {
+      setText("");
+      input.blur();
       return;
     }
+
+    if (text.length > 40) {
+      setText("");
+      input.blur();
+      messageAction("long");
+      return;
+    }
+
+    setCount(tasks.length + 1);
 
     const newTask = {
       txt: text,
@@ -32,15 +56,13 @@ const App = () => {
     setTasks(tasks.concat(newTask));
 
     setText("");
-    setMessage("add");
-
-    //const input = document.querySelector('.input').blur();
+    messageAction("add");
+    input.blur();
   };
 
   const handleTaskDone = (e) => {
     e.preventDefault();
 
-    //добавить отложенный старт
     setTasks(
       tasks.filter((task) => {
         return task.id !== e.target.value;
@@ -56,17 +78,7 @@ const App = () => {
     );
     setCount(tasks.length - 1);
 
-    const doneMessage = () => {
-      setMessage("done");
-      setAlert(true);
-      let alertWindow = setTimeout(() => setAlert(false), 1000);
-
-      return () => {
-        clearInterval(alertWindow);
-      };
-    };
-
-    doneMessage();
+    messageAction("done");
   };
 
   const handleTaskDel = (e) => {
@@ -90,17 +102,7 @@ const App = () => {
       }
     });
 
-    const delMessage = () => {
-      setMessage("del");
-      setAlert(true);
-      let alertWindow = setTimeout(() => setAlert(false), 1000);
-
-      return () => {
-        clearInterval(alertWindow);
-      };
-    };
-
-    delMessage();
+    messageAction("del");
   };
 
   const handleTaskReturn = (e) => {
@@ -121,17 +123,7 @@ const App = () => {
     );
     setCount(tasks.length + 1);
 
-    const retMessage = () => {
-      setMessage("ret");
-      setAlert(true);
-      let alertWindow = setTimeout(() => setAlert(false), 1000);
-
-      return () => {
-        clearInterval(alertWindow);
-      };
-    };
-
-    retMessage();
+    messageAction("ret");
   };
 
   useEffect(() => {
@@ -161,18 +153,11 @@ const App = () => {
         done={done}
       />
 
-      <div className="form">
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            className="input"
-            placeholder="Enter new task"
-            onChange={handleChange}
-            value={text}
-          />
-          <button className="button">Submit</button>
-        </form>
-      </div>
+      <TodoFrom
+        handleSubmit={handleSubmit}
+        handleChange={handleChange}
+        text={text}
+      />
     </div>
   );
 };

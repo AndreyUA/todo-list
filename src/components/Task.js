@@ -22,8 +22,10 @@ const Task = (props) => {
   return (
     <>
       <div className="task invisible">
-        <span className="task-number">{props.number})</span>
-        <span className="task-topic">{` ${props.task.txt}`}</span>
+        <div className="task-txt">
+          <span className="task-number">{props.number})</span>
+          <span className="task-topic">{` ${props.task.txt}`}</span>
+        </div>
         <div className="task-control">
           <button
             value={props.task.id}

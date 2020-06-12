@@ -1,24 +1,40 @@
 .task {
   font-size: 30px;
-  border: 2px solid green;
+  border: 2px solid rgb(197, 201, 4);
   margin: 5px 0;
   padding: 15px;
-  transform: translate(0,0);
+  transform: translate(0, 0);
   transition: opacity 1.2s ease-out, transform 0.6s ease-out;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
+  height: 6%;
+
+  .task-txt {
+    width: 70%;
+
+    .task-topic {
+      text-decoration: none;
+    }
+
+    .task-topic-chosen {
+      text-decoration: line-through;
+    }
+  }
 
   .task-number {
     font-style: italic;
   }
 
   .task-control {
-    float: right;
-  }
+    height: 100%;
+    width: 30%;
 
-  .task-topic {
-    text-decoration: none;
-  }
-
-  .task-topic-chosen {
-    text-decoration: line-through;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
   }
 }

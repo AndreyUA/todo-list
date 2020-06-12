@@ -7,13 +7,15 @@ const Alert = (props) => {
     <div className={props.alert ? "alert alert-active" : "alert"}>
       <p className="alert-txt">
         {props.message === "add"
-          ? "Task created!"
+          ? "Task added!"
           : props.message === "done"
           ? "Task done!"
           : props.message === "del"
           ? "Task deleted!"
           : props.message === "ret"
           ? "Task returned!"
+          : props.message === "long"
+          ? "Task is too long!"
           : null}
       </p>
     </div>

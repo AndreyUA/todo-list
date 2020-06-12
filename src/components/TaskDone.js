@@ -13,11 +13,13 @@ const TaskDone = (props) => {
   return (
     <>
       <div className="task-done invisible">
-        <span className="task-done-number">{props.number})</span>
-        <span
-          className="task-done-topic"
-          style={{ textDecoration: "line-through" }}
-        >{` ${props.task.txt}`}</span>
+        <div className="task-txt">
+          <span className="task-done-number">{props.number})</span>
+          <span
+            className="task-done-topic"
+            style={{ textDecoration: "line-through" }}
+          >{` ${props.task.txt}`}</span>
+        </div>
         <div className="task-control">
           <button
             value={props.task.id}
@@ -26,7 +28,7 @@ const TaskDone = (props) => {
           >
             &#9850;
           </button>
-          
+
           <button
             value={props.task.id}
             className="delete"
@@ -34,7 +36,6 @@ const TaskDone = (props) => {
           >
             &#10008;
           </button>
-
         </div>
       </div>
     </>
