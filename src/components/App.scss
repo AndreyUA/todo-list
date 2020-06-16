@@ -16,7 +16,7 @@
 
 .wrapper {
   height: 90%;
-  width: 60%;
+  width: 80%;
   min-width: 500px;
   background-color: rgb(39, 39, 39);
 
@@ -30,8 +30,8 @@
 .delete {
   margin-left: 5px;
   font-size: 30px;
-  width: 40px;
-  height: 40px;
+  width: 53px;
+  height: 53px;
   cursor: pointer;
 
   appearance: none;
@@ -54,8 +54,8 @@
 .return {
   margin-left: 5px;
   font-size: 30px;
-  width: 40px;
-  height: 40px;
+  width: 53px;
+  height: 53px;
   cursor: pointer;
 
   appearance: none;
@@ -78,8 +78,8 @@
 .done {
   margin-left: 5px;
   font-size: 30px;
-  width: 40px;
-  height: 40px;
+  width: 53px;
+  height: 53px;
   cursor: pointer;
 
   appearance: none;
@@ -97,4 +97,41 @@
 
 .done:focus {
   outline: none;
+}
+
+@media (max-width: 1200px) {
+  .wrapper {
+    width: 90%;
+  }
+}
+
+@media (max-width: 900px) {
+  .wrapper {
+    width: 100%;
+    height: 100%;
+
+    .header-txt {
+      font-size: 18px;
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .wrapper {
+    min-width: auto;
+
+    .header-txt {
+      font-size: 20px;
+      margin: 10px 0 0 0;
+    }
+  }
+
+ .done,
+  .delete,
+  .return {
+    font-size: 12px;
+    width: 30px;
+    height: 30px;
+    margin: 0 5px 0 0;
+  }
 }

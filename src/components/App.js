@@ -39,7 +39,7 @@ const App = () => {
       return;
     }
 
-    if (text.length > 40) {
+    if (text.length > 25) {
       setText("");
       input.blur();
       messageAction("long");

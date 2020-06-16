@@ -1,5 +1,5 @@
 .task {
-  font-size: 30px;
+  font-size: 18px;
   border: 2px solid rgb(197, 201, 4);
   margin: 5px 0;
   padding: 15px;
@@ -8,13 +8,12 @@
 
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 
-  height: 6%;
+  height: 35px;
 
   .task-txt {
-    width: 70%;
 
     .task-topic {
       text-decoration: none;
@@ -31,10 +30,33 @@
 
   .task-control {
     height: 100%;
-    width: 30%;
 
     display: flex;
     justify-content: flex-end;
     align-items: center;
+  }
+}
+
+@media (max-width: 900px) {
+  .task {
+    .task-txt {
+      .task-topic {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .task {
+    width: 98%;
+    border: .5px solid rgb(197, 201, 4);
+    padding: 0;
+
+    .task-txt {
+      .task-topic {
+        font-size: 8px;
+      }
+    }
   }
 }
